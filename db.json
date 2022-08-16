@@ -1,0 +1,25 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "title": "test1",
+      "content": "test1 content here",
+      "isFavourite": false,
+      "description": "description test"
+    },
+    {
+      "id": 2,
+      "title": "example",
+      "content": "exaple example",
+      "isFavourite": false,
+      "description": "example note"
+    },
+    {
+      "id": 3,
+      "title": "third note",
+      "content": "asasdasd asd d",
+      "isFavourite": false,
+      "description": "description here"
+    }
+  ]
+}
