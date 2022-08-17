@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {Routes, Route, useRouteMatch, useParams} from "react-router-dom";
+import {Routes, Route, useRouteMatch, useParams, useLocation} from "react-router-dom";
 import EditNote from "./EditNote";
 import FavouriteStar from "../FavouriteStar";
 import {getIndexById} from "../../Utitity/other";
@@ -28,13 +28,11 @@ function NoteView(props){
             <div className="note-view-favourite-container">
                 <FavouriteStar setFavourite={props.setFavourite} changeNote={props.setEditedNote} note={props.editedNote} />
             </div>
-            <Routes>
-                <Route path=':id' element={
-                 <EditNote
-                  changeNote={props.setEditedNote}
-                  note={props.editedNote} />
-                }></Route>           
-            </Routes>
+            <EditNote
+             changeNote={props.setEditedNote}
+             note={props.editedNote} 
+            />
+                
         </div>
     )
 }
