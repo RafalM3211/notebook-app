@@ -1,11 +1,15 @@
-import {MemoryRouter} from "react-router-dom";
-import {render} from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import { render } from "@testing-library/react";
 import { useState } from "react";
+import { updateObject } from "../Utitity/other";
 
 export function wrapWithAppState(Comp){
     return function(props){
         const [editedNote, setEditedNote]=useState({});
-        const setFavouriteShortened=jest.fn();
+        const setFavouriteShortened=jest.fn((id, value)=>{
+            const updatedNote=updateObject(editedNote, {isFavourite: value});
+            setEditedNote(updatedNote);
+        });
         const notes=[{
             "id": 1,
             "title": "test1",
