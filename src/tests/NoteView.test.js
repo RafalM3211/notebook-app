@@ -3,7 +3,7 @@ import NoteView from "../components/NoteView/NoteView";
 import { screen, fireEvent, getByPlaceholderText } from "@testing-library/react";
 import {wrappedRender, wrapWithAppState} from "./testUtils";
 import React from 'react';
-import {userEvent} from "@testing-library/user-event";
+import userEvent from "@testing-library/user-event";
 
 const StateWrappedNoteView=wrapWithAppState(NoteView);
 
@@ -57,7 +57,7 @@ it("lets writing note", ()=>{
     const noteBody=screen.getByPlaceholderText("edit your note");
     expect(noteBody).toHaveTextContent("test1 content here");
     fireEvent.change(noteBody, {target: {value: "asdf"}});
-
+    expect(noteBody).toHaveTextContent("asdf")
 
     ReactRouter.useParams.mockRestore();
 })
