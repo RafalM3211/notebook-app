@@ -44,7 +44,7 @@ it("sets note favourite", ()=>{
     ReactRouter.useParams.mockRestore();
 });
 
-it("lets writing note", ()=>{
+it("type into a note", async ()=>{
     //arrange
     const user=userEvent.setup();
     
@@ -56,8 +56,8 @@ it("lets writing note", ()=>{
     //assert
     const noteBody=screen.getByPlaceholderText("edit your note");
     expect(noteBody).toHaveTextContent("test1 content here");
-    fireEvent.change(noteBody, {target: {value: "asdf"}});
-    expect(noteBody).toHaveTextContent("asdf")
+    await user.type(noteBody, "asdf");
+    expect(noteBody).toHaveTextContent("asdf");
 
     ReactRouter.useParams.mockRestore();
 })
