@@ -19,7 +19,7 @@ function Note(props){
     return(
             <div className="note">
                 <Link  className="note-link" to={`/note/${id}`}>
-                <p className="note-name">{title}</p>
+                <p data-testid="name" className="note-name">{title}</p>
                 <p className="note-description">{shortenDescription(description, 70)}</p>
                 </Link>
                 <div onClick={()=>{props.deleteNote(id)}} className="delete">

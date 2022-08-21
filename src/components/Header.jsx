@@ -8,7 +8,7 @@ function Header(props){
 
     return(
         <header className="App-header">
-            <Link className="return-button" to={'/'}><Icon icon="uiw:caret-left" /></Link>
+            <Link data-testid="main-return-button" className="return-button" to={'/'}><Icon icon="uiw:caret-left" /></Link>
             <Routes>
                 <Route path='/' element={<Logo />} />
                 <Route path='note/*' element={

@@ -2,15 +2,15 @@
   "notes": [
     {
       "id": 1,
-      "title": "test1",
-      "content": "test1 content here",
+      "title": "hello",
+      "content": "asfasf",
       "isFavourite": false,
       "description": "description test"
     },
     {
       "id": 2,
-      "title": "example",
-      "content": "exaple example",
+      "title": "bye",
+      "content": "asasff",
       "isFavourite": false,
       "description": "example note"
     },
