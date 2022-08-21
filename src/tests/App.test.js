@@ -2,6 +2,7 @@ import App from "../App";
 import {screen, render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as RestFunctions from "../Utitity/RestFunctions";
+import {resetRoute} from "./testUtils";
 
 const notesReturned=[{
     "id": 1,
@@ -13,7 +14,7 @@ const notesReturned=[{
 {
     "id": 2,
     "title": "example",
-    "content": "exaple example",
+    "content": "exaple note content",
     "isFavourite": false,
     "description": "example note"
 },
@@ -32,6 +33,9 @@ const notesReturned=[{
     "description": "example note3"
 }];
 
+afterEach(()=>{
+    resetRoute();
+})
 
 it("renders correctly",async()=>{
     //arrange
@@ -42,7 +46,7 @@ it("renders correctly",async()=>{
 
     //assert
     expect(await screen.findByText("test1")).toBeInTheDocument(); 
-})
+});
 
 it("opens correct note", async()=>{
     //arrange
@@ -54,10 +58,30 @@ it("opens correct note", async()=>{
 
     //assert
     const note1=await screen.findByText("test1");
-    user.click(note1);
-    expect(await screen.findByPlaceholderText("edit your note")).toHaveTextContent("test1 content here");
-    user.click(screen.getByTestId("main-return-button"));
-    const otherNote=await screen.findByText("example3");
-    user.click(otherNote);
-    expect(await screen.findByPlaceholderText("edit your note")).toHaveTextContent("exaple3 example3");
-})
+    await user.click(note1);
+    expect(screen.getByDisplayValue("test1 content here")).toBeInTheDocument();
+    
+    await user.click(screen.getByTestId("main-return-button"));
+    const otherNote=screen.getByText("example3");
+    await user.click(otherNote);
+    expect(screen.getByDisplayValue("exaple3 example3")).toBeInTheDocument();
+ 
+});
+
+it("note content doesn't saves without pressing save button", async()=>{
+    //arrange
+    RestFunctions.getNotes=jest.fn().mockResolvedValue(notesReturned);
+    const user=userEvent.setup();
+
+    //act
+    render(<App/>);
+    await user.click(await screen.findByText("example"));
+    await user.type(screen.getByDisplayValue("exaple note content"), " additional content");
+
+    //assert
+    expect(screen.getByDisplayValue("exaple note content additional content")).toBeInTheDocument();
+    await user.click(screen.getByTestId("main-return-button"));
+    await user.click(screen.getByText("example"));
+    expect(screen.getByDisplayValue("exaple note content")).toBeInTheDocument();
+    
+});

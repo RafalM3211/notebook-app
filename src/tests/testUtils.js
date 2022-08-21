@@ -3,6 +3,10 @@ import { render } from "@testing-library/react";
 import { useState } from "react";
 import { updateObject } from "../Utitity/other";
 
+export function resetRoute(){
+    window.history.pushState({}, '', '/');
+}
+
 export function wrapWithAppState(Comp){
     return function(props){
         const [editedNote, setEditedNote]=useState({});
