@@ -21,9 +21,19 @@ function NoteControl(props){
             </div>
             <input value={title} onChange={(e)=>{props.setName(id, e.target.value)}} className="note-name" type="text"/>
         </div>
-        <div className={`control-buttons ${isEdited? "edited":""}`} >
-            <div onClick={()=>{props.saveNote(props.editedNote)}} className="save-button"> &#10004;</div>
-            <div onClick={props.cancelEdit} className="cancel-button">&#10007;</div>
+        <div className={"control-buttons"} >
+            <button 
+             disabled={!isEdited}
+             onClick={()=>{props.saveNote(props.editedNote)}}
+             className="save-button">
+                &#10004;
+            </button>
+            <button
+             disabled={!isEdited}
+             onClick={props.cancelEdit} 
+             className="cancel-button">
+                &#10007;
+            </button>
         </div>
     </>
     )

@@ -79,17 +79,17 @@ body{
   display: flex;
 }
 
-.control-buttons.edited> .save-button{
-  color: var(--main-font-color);
-}
-
-.control-buttons.edited> .cancel-button{
-  color: var(--main-font-color);
+.cancel-button[disabled], .save-button[disabled]{
+  color: var(--shaded-font-color);
 }
 
 .save-button, .cancel-button{
   margin: 0 5px;
-  color: var(--shaded-font-color);
+  padding: 0;
+  font-size: 1em;
+  color: var(--main-font-color);
+  background-color: transparent;
+  border: none;
 }
 
 
