@@ -68,7 +68,7 @@ it("opens correct note", async()=>{
  
 });
 
-it("note content doesn't saves without pressing save button", async()=>{
+it("note content doesn't save without pressing save button", async()=>{
     //arrange
     RestFunctions.getNotes=jest.fn().mockResolvedValue(notesReturned);
     const user=userEvent.setup();
