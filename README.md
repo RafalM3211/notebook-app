@@ -1,6 +1,10 @@
 ##### `npm install`
-##### `json-server --watch db.json`
+
 ##### `npm start`
+
+## disclaimer
+
+This branch is made to make the app work on github pages. I had very little time to pull it off so code here is very messy. It's very messy on main branch anyway but here it achieves another level of uglyness :D
 
 # Getting Started with Create React App
 
