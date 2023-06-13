@@ -8,17 +8,19 @@ function Header(props){
 
     return(
         <header className="App-header">
-            <Link data-testid="main-return-button" className="return-button" to={'/'}><Icon icon="uiw:caret-left" /></Link>
             <Routes>
                 <Route path='/' element={<Logo />} />
                 <Route path='note/*' element={
-                    <NoteControl 
-                     setDescription={props.setDescription}
-                     setName={props.setName}
-                     saveNote={props.saveNote} 
-                     cancelEdit={props.cancelEdit}
-                     editedNote={props.editedNote} 
-                    />
+                    <>
+                        <Link data-testid="main-return-button" className="return-button" to={'/'}><Icon icon="uiw:caret-left" /></Link>
+                        <NoteControl 
+                        setDescription={props.setDescription}
+                        setName={props.setName}
+                        saveNote={props.saveNote} 
+                        cancelEdit={props.cancelEdit}
+                        editedNote={props.editedNote} 
+                        />
+                    </>
                 }/>
             </Routes>
         </header>
