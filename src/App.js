@@ -2,7 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import HomeView from './components/HomeView';
 import NoteView from './components/NoteVIew/NoteView';
-import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import {getNotes} from './Utitity/RestFunctions';
 import {updateObject, getIndexById} from './Utitity/other';
@@ -75,7 +75,7 @@ function App() {
         />
         <main>
           <Routes>
-           <Route path='/note/*' element={
+           <Route path='/notebook-app/note/*' element={
             <NoteView
              setEditedNote={setEditedNote}
              editedNote={editedNote}
@@ -83,13 +83,16 @@ function App() {
              notes={notes} />
             }>
            </Route>
-           <Route path='/' element={
+           <Route path='/notebook-app/' element={
             <HomeView 
             deleteNote={deleteNoteShortened}
             setFavourite={setFavouriteShortened} 
             notes={notes} 
             isLoading={isLoading}/>}>
            </Route>
+           <Route path='/' element={
+            <Navigate to='/notebook-app/' replace={true} />
+           }></Route>
           </Routes>
         </main>
       </div>

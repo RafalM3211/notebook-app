@@ -14,7 +14,7 @@ function HomeView(props){
              notes={props.notes} 
              isLoading={props.isLoading} />
             <div className="note add-note">
-                <Link className="note-link" to="/note/add"><p className="plus-icon">+</p></Link>
+                <Link className="note-link" to="/notebook-app/note/add"><p className="plus-icon">+</p></Link>
             </div>
         </div>
             

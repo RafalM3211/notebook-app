@@ -9,10 +9,10 @@ function Header(props){
     return(
         <header className="App-header">
             <Routes>
-                <Route path='/' element={<Logo />} />
-                <Route path='note/*' element={
+                <Route path='/notebook-app/' element={<Logo />} />
+                <Route path='/notebook-app/note/*' element={
                     <>
-                        <Link data-testid="main-return-button" className="return-button" to={'/'}><Icon icon="uiw:caret-left" /></Link>
+                        <Link data-testid="main-return-button" className="return-button" to={'/notebook-app/'}><Icon icon="uiw:caret-left" /></Link>
                         <NoteControl 
                         setDescription={props.setDescription}
                         setName={props.setName}

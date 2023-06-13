@@ -1,7 +1,7 @@
 {
-  "name": "notes-app",
+  "name": "notebook-app",
   "version": "0.1.0",
-  "homepage": "https://rafalm3211.github.io/notes-app",
+  "homepage": "https://rafalm3211.github.io/notebook-app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
