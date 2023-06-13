@@ -24,11 +24,11 @@ function updateObject(orginalObject, update){
 
 function createEmptyNote(){
     return {
-        "id": undefined,
-        "title": "",
-        "content": "",
-        "isFavourite": false,
-        "description": ""
+        id: undefined,
+        title: "",
+        content: "",
+        isFavourite: false,
+        description: ""
       }
 }
 

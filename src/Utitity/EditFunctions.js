@@ -1,18 +1,11 @@
 import {patchFavourite, sendNote, sendDeletion} from "./RestFunctions";
 import {getNoteById, getIndexById} from "./other"
 
-/*     {
-      "id": 4,
-      "title": "dasdgashhaf",
-      "description": "asdh jasa s",
-      "content": "nie dzialargasdasdadaasddasda",
-      "isFavourite": true
-    }, */
 
 function prepareNoteForSend(note){
     const preparedNote={...note};
     delete preparedNote.isEdited;
-    return JSON.stringify(preparedNote);
+    return preparedNote;
 }
 
 function updateNotes(id, value, notes, setNotesState, key){

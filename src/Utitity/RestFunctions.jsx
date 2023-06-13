@@ -1,3 +1,5 @@
+import { getIndexById } from "./other";
+
 const URL="http://localhost:3000";
 
 const mockedNotes=[
@@ -33,8 +35,9 @@ const mockedNotes=[
 
 async function getNotes(){
     try{
+        const notes=localStorage.getItem("notes");
         //const notes=await fetch(`${URL}/notes`).then(res=>res.json());
-        return mockedNotes
+        return JSON.parse(notes)||[]
     }
     catch(err){
         console.error(err);
@@ -57,6 +60,17 @@ async function sendDeletion(id){
 async function sendNote(note, id, isNoteNew){
     const protocol=isNoteNew? "POST":"PUT";
     try{
+        const notes=JSON.parse(localStorage.getItem("notes"))||[];
+        const sendedNote={id, ...note};
+        const noteIndex=getIndexById(id, notes);
+        if(!noteIndex){
+            notes.push(sendedNote);
+        }
+        else{
+            notes[noteIndex]=sendedNote;
+        }
+        
+        localStorage.setItem("notes", JSON.stringify(notes));
         /* await fetch(`${URL}/notes/${isNoteNew?"":id}`, {
             method: protocol,
             headers:{
