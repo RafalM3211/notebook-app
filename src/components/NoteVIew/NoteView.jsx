@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {Routes, Route, useRouteMatch, useParams, useLocation} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import EditNote from "./EditNote";
 import FavouriteStar from "../FavouriteStar";
 import {getIndexById} from "../../Utitity/other";
