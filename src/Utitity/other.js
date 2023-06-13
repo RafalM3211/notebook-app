@@ -22,4 +22,14 @@ function updateObject(orginalObject, update){
     return updatedObject
 }
 
-export {updateObject, getNoteById, getIndexById}
+function createEmptyNote(){
+    return {
+        "id": undefined,
+        "title": "",
+        "content": "",
+        "isFavourite": false,
+        "description": ""
+      }
+}
+
+export {updateObject, getNoteById, getIndexById, createEmptyNote}
